@@ -12,6 +12,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "puppetlabs/debian-7.4-32-puppet"
 
+  config.vm.provision "shell", path: "spec/fixtures/bootstrap.sh"
+
+  config.vm.provision "puppet" do |puppet|
+    puppet.options = "--verbose"
+    puppet.module_path = "spec/fixtures/modules"
+    puppet.manifests_path = "spec/fixtures/manifests"
+    puppet.manifest_file  = "site.pp"
+  end
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
