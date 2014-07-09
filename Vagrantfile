@@ -20,6 +20,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.manifests_path = "spec/fixtures/manifests"
     puppet.manifest_file  = "site.pp"
   end
+
+  config.vm.provision "shell", inline: "ls -l /etc/apt/preferences.d"
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.

@@ -1,4 +1,5 @@
 *.swp
+.vagrant
 pkg/
 Gemfile.lock
 spec/fixtures/modules
