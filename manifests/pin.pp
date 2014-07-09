@@ -72,8 +72,8 @@ define apt::pin(
   # file, unless that file matches a pattern in the
   # Dir::Ignore-Files-Silently configuration list - in which case it will
   # be silently ignored.
-  # $file_name = regsubst($title, '[^0-9a-z\-_\.]', '_', 'IG')
-  $file_name = regsubst($title, '\W', '_', 'IG')
+  $file_name = regsubst($title, '[^0-9a-z\-_\.]', '_', 'IG')
+  # $file_name = regsubst($title, '\W', '_', 'IG')
 
   $path = $order ? {
     ''      => "${preferences_d}/${file_name}.pref",
